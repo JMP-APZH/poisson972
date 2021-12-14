@@ -6,16 +6,22 @@ import Registration from './components/Registration';
 import DarkMode from './components/DarkMode';
 import DarkMode2 from './components/DarkMode2';
 import DMtoggle from './components/DMtoggle';
+import FishSales from './components/FishSales';
+import GoogleAuth from './components/GoogleAuth';
+import GoogleLogIn2 from './components/GoogleLogIn2';
 
 function App() {
   return (
     <div className="App">
       <Login />
-      {/* <Sidebar />
-      <Registration />
-      <DarkMode />
-      <DarkMode2 />
-      <DMtoggle /> */}
+      {/* <GoogleAuth /> */}
+      {/* <GoogleLogIn2 /> */}
+      {/* <Sidebar /> */}
+      {/* <Registration /> */}
+      {/* <DarkMode /> */}
+      {/* <DarkMode2 /> */}
+      {/* <DMtoggle /> */}
+      {/* <FishSales /> */}
     </div>
   );
 }
