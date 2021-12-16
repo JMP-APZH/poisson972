@@ -1,6 +1,7 @@
 import React from 'react'
 import FacebookLogin from 'react-facebook-login';
 import { useState } from 'react'
+// import TiSocialFacebookCircular from 'react-icons/lib/ti/social-facebook-circular';
 
 const FacebookAuth1 = () => {
     
@@ -15,7 +16,8 @@ const FacebookAuth1 = () => {
     // absolute top-1/2 left-1/2 -mt-12 -ml-12
 
     return (
-        <div className="h-screen w-screen flex justify-center items-center top-1/2">
+        <div className="">
+        {/* className="h-screen w-screen flex justify-center items-center top-1/2"> */}
             { showHome ? 
                 <h2 
                     className="text-2xl text-bold">
@@ -26,7 +28,10 @@ const FacebookAuth1 = () => {
                     // autoLoad={true}
                     fields="name,email,picture"
                     // onClick={componentClicked}
-                    callback={responseFacebook} 
+                    callback={responseFacebook}
+                    // cssClass="my-facebook-button-class"
+                    icon="fa-facebook"
+                    // icon={<TiSocialFacebookCircular />}
                 />
             
             }

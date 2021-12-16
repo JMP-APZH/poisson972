@@ -16,7 +16,7 @@ import FacebookAuth1 from './components/FacebookAuth1';
 function App() {
   return (
     <div className="App">
-      {/* <Login /> */}
+      <Login />
       {/* <GoogleAuth /> */}
       {/* <GoogleLogIn2 /> */}
       {/* <FacebookAuth1 /> */}
