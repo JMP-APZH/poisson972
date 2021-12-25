@@ -62,6 +62,8 @@ const Login = () => {
                     <GoogleLogIn2 />
                 </div>
 
+                <br></br>
+
                 <div>
                     <FacebookAuth1 />
 

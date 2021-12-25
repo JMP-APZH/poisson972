@@ -10,18 +10,20 @@ import FishSales from './components/FishSales';
 import GoogleAuth from './components/GoogleAuth';
 import GoogleLogIn2 from './components/GoogleLogIn2';
 import FacebookAuth1 from './components/FacebookAuth1';
+import Registration_be from './components/Registration_be';
 
 
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      {/* <Login /> */}
+      {/* <Registration_be /> */}
       {/* <GoogleAuth /> */}
       {/* <GoogleLogIn2 /> */}
       {/* <FacebookAuth1 /> */}
       {/* <Sidebar /> */}
-      {/* <Registration /> */}
+      <Registration />
       {/* <DarkMode /> */}
       {/* <DarkMode2 /> */}
       {/* <DMtoggle /> */}
