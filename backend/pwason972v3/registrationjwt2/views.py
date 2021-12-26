@@ -29,7 +29,7 @@ class CreateRegistrationView(GenericAPIView):
             'Thank you for registering!',
             'Thank you for registering an account on PM972\n'
             f'Here is your code for registration:\n{instance.code}',
-            'djppfinal@gmail.com',
+            'pwason972@gmail.com',
             [request.data['email']],
             fail_silently=False,
         )
@@ -47,6 +47,9 @@ class ValidateCreateRegistrationView(GenericAPIView):
                                      username=serializer.validated_data['username'],
                                      first_name=serializer.validated_data['first_name'],
                                      last_name=serializer.validated_data['last_name'])
+
+# code field and password repeat missing
+
             return Response(status.HTTP_200_OK)
 
 

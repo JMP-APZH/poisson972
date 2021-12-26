@@ -94,6 +94,18 @@ const Registration = () => {
                             />
                     </div>
 
+                    <div>
+                        <label 
+                            className="block mb-1 font-bold text-gray-500"> 
+                            Confirmation Code (Received per Email)
+                        </label>
+                        <input 
+                            type="password"
+                            className="w-full border-2 border-gray-200 p-3 rounded 
+                                    outline-none focus:border-purple-500" 
+                            />
+                    </div>
+
                     <div className="flex items-center">
                         <input type="checkbox" id="agree" className="mr-2"/>
                         <label for="agree" className="ml-2 text-gray-700 text-sm"> 

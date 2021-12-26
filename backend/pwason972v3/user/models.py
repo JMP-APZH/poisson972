@@ -18,6 +18,8 @@ class User(AbstractUser):
     created = models.DateTimeField(auto_now_add=True)
     email = models.EmailField(unique=True)
     avatar = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
+
+    password = models.CharField(max_length=50, blank=False, null=False)
     
     # could it be automated?
     # location = models.CharField(max_length=50, blank=True, null=True)

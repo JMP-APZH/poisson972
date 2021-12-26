@@ -11,6 +11,9 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ['email', 'username']
 
+    # function for password hashing to be added
+    # see video @ 18min: https://www.youtube.com/watch?v=PUzgZrS_piQ
+
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
@@ -19,4 +22,5 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Custom data you want to include
         data.update({'user': UserSerializer(self.user, many=False).data})
         return data
+
 
