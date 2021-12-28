@@ -13,6 +13,18 @@ import FacebookAuth1 from './components/FacebookAuth1';
 import Registration_be from './components/Registration_be';
 import Auth from './pages/Auth';
 
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from './pages/Home';
+import About from './pages/About';
+import Profile from './pages/Profile';
+import ErrorPage from './pages/ErrorPage';
+import LandingAuth from './pages/LandingAuth';
+import RegPage from './pages/RegPage';
+import RegConf from './pages/RegConf';
+import RegForm from './pages/RegForm';
+import MainLogin from './pages/MainLogin';
+// needs to import the element pages
+
 
 
 function App() {
@@ -29,7 +41,45 @@ function App() {
       {/* <DarkMode2 /> */}
       {/* <DMtoggle /> */}
       {/* <FishSales /> */}
-      <Auth />
+      {/* <Auth /> */}
+      
+      <Router>
+
+        <Routes>
+            <Route path="/start" element={<LandingAuth />} />
+            <Route path="/registration" element={<RegPage />} />
+            <Route path="/registrationconf" element={<RegConf />} />
+            <Route path="/regform" element={<RegForm />} />
+            <Route path="/login" element={<MainLogin />} />
+            <Route path="/home" element={<Home />} />
+            {/* <Route path="/profile/:username" element={<Profile />} /> */}
+            <Route path="*" element={<ErrorPage />} />
+
+
+          </Routes>
+
+      </Router>
+
+      {/* <Router>
+
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/profile">Profile</Link>
+
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:username" element={<Profile />} />
+          <Route path="*" element={<ErrorPage />} />
+
+
+        </Routes>
+      </Router> */}
+
     </div>
   );
 }

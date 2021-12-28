@@ -3,14 +3,14 @@ import FacebookAuth1 from '../components/FacebookAuth1';
 import GoogleLogIn2 from '../components/GoogleLogIn2';
 
 import React, { useState } from "react";
-import { useHistory } from "react-router";
 import axios from "axios";
+// import { useNavigate } from 'react-router-dom';
 
 
 
 const Auth = () => {
     const [pageState, setPageState] = useState("login");
-    // const history = useHistory();
+    // const navigate = useNavigate();
     // const theme = useTheme();
     const [username, setUsername] = useState("");
     const [first, setFirst] = useState("");
@@ -51,6 +51,21 @@ const Auth = () => {
         setEmail("");
         setPageState("login");
     };
+
+    const submitLogin = async (e) => {
+        e.preventDefault();
+        const { data } = await axios.post(
+          `http://127.0.0.1:8000/backend/api/auth/token/`,
+          {
+            email,
+            password,
+          }
+        );
+        localStorage.setItem("token", data.access);
+        setPageState("login");
+        window.location.reload();
+    };
+    
     
     
 
@@ -316,13 +331,73 @@ const Auth = () => {
                         
                 </div>
             );
-        }
+        } else if (pageState === "login") {
+            <div 
+                className="bg-wave-img bg-cover 
+                    h-screen w-screen 
+                    flex flex-col justify-center items-center" 
+            >
+
+                <h2 
+                className='text-3xl text-yellow-500'>
+                    Pwason Matinik
+                </h2>
+                
+                <p 
+                className="text-2xl my-5 text-black text-bold italic">
+                    La Force pour nos Pêcheurs
+                </p>
+
+                <div 
+                    className="container 
+                                h-96 w-96 bg-green-800 bg-opacity-20 rounded-2xl shadow-5xl 
+                                relative z-2 border border-opacity-30 border-r-0 border-b-0 
+                                backdrop-filter">
+
+                    <form
+                        onSubmit={(e) => submitLogin(e)} 
+                        className='h-full flex flex-col justify-evenly items-center'>
+                        <div className='text-red-800 font-poppins text-2xl tracking-widest flex flex-col justify-center items-center'>
+                            <p>Sésame</p>
+                            <p>vers la Richesse</p>
+                            <p>de la Mer</p>
+
+                        </div>
+                        <input
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}               
+                            type="email" 
+                            placeholder='Email' 
+                            className='input-text text-white bg-black'/>
+
+                        <input
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}                             
+                            type="password" 
+                            placeholder='password' 
+                            className='input-text text-white bg-blue-800'/>
+                        
+                        <input 
+                                onSubmit={(e) => submitLogin(e)}
+                                type="Submit" 
+                                value="Konèkté Kow'" 
+                                className='w-60 cursor-pointer font-poppins 
+                                rounded-full px-5 py-1 bg-yellow-500 bg-opacity-50 
+                                hover:bg-white hover:bg-opacity-80'/>
+                    </form>
+
+                
+            
+                </div>
+
+            </div>
+        } 
     } 
 
     return (
 
         <div>
-            <div className='bg-wave-img bg-cover
+            {/* <div className='bg-wave-img bg-cover
                             h-screen w-screen
                             flex flex-col justify-center items-center'>
 
@@ -346,8 +421,7 @@ const Auth = () => {
                             <label className="block mb-1 font-bold text-gray-500"> 
                                 Email 
                             </label>
-                            <input 
-                                // label="E-mail"
+                            <input
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 type="email"
@@ -367,117 +441,14 @@ const Auth = () => {
                         </button>
 
                     </div>
-                </form>
-
+                </form> */}
+                <div>
+                    {pageType()}
+                </div>
+                
             </div>
-            {pageType()}
-        </div>
-
-        // <div>
-            
-        //         <div 
-        //     className="bg-wave-img bg-cover 
-        //                 h-screen w-screen 
-        //                 flex flex-col justify-center items-center
-        //                 " 
-        //         >
-
-        //             <h2 
-        //             className='text-3xl text-yellow-500'>
-        //                 Pwason Matinik
-        //             </h2>
-                    
-        //             <p 
-        //             className="text-2xl my-5 text-black text-bold italic">
-        //                 La Force pour nos Pêcheurs
-        //             </p>
-
-                // <div 
-                //     className="container 
-                //                 h-96 w-96 bg-green-800 bg-opacity-20 rounded-2xl shadow-5xl 
-                //                 relative z-2 border border-opacity-30 border-r-0 border-b-0 
-                //                 backdrop-filter">
-
-                //     <form className='h-full flex flex-col justify-evenly items-center'>
-                //         <div className='text-red-800 font-poppins text-2xl tracking-widest flex flex-col justify-center items-center'>
-                //             <p>Sésame</p>
-                //             <p>vers la Richesse</p>
-                //             <p>de la Mer</p>
-
-                //         </div>
-                //         <input 
-                //             type="email" 
-                //             placeholder='Email' 
-                //             className='input-text text-white bg-black'/>
-
-                //         <input 
-                //             type="password" 
-                //             placeholder='password' 
-                //             className='input-text text-white bg-blue-800'/>
-                        
-                //         <input type="Submit" 
-                //                 value="Konèkté Kow'" 
-                //                 className='w-60 cursor-pointer font-poppins 
-                //                 rounded-full px-5 py-1 bg-yellow-500 bg-opacity-50 
-                //                 hover:bg-white hover:bg-opacity-80'/>
-                //     </form>
-
-                    
-                
-                // </div>
-
-                // <div className="flex flex-col justify-center items-center p-7 w-96">
-                
-                //     <div className='top-0 right-0 rounded-3xl'>
-                //         <GoogleLogIn2 />
-                //     </div>
-
-                //     <br></br>
-
-                //     <div>
-                //         <FacebookAuth1 />
-
-                //     </div>
-
-                // </div>
 
 
-            //     <form
-            //         onSubmit={(e) => submitRegister1(e)}
-            //     >
-            //         <div 
-            //             className='flex flex-col justify-center items-center'>
-
-            //         <div>
-            //             <label className="block mb-1 font-bold text-gray-500"> 
-            //                 Email 
-            //             </label>
-            //             <input 
-            //                 // label="E-mail"
-            //                 value={email}
-            //                 onChange={(e) => setEmail(e.target.value)}
-            //                 type="email"
-            //                 className="w-full border-2 border-gray-200 p-3 rounded 
-            //                         outline-none focus:border-purple-500" 
-            //             />
-            //         </div>
-
-            //         <button
-            //         onClick={(e) => submitRegister1(e)} 
-            //         className='w-60 p-7 cursor-pointer font-poppins 
-            //                     rounded-full px-5 py-1 bg-yellow-500 bg-opacity-50 
-            //                     hover:bg-white hover:bg-opacity-80'>
-            //                         Vini Ba Nou Foss La
-            //                         <br />
-            //                         Kréé an Kont'
-            //         </button>
-
-            //         </div>
-            //     </form>
-            // </div>
-
-
-        // </div>
     )
 }
 
