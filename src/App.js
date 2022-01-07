@@ -23,6 +23,8 @@ import RegPage from './pages/RegPage';
 import RegConf from './pages/RegConf';
 import RegForm from './pages/RegForm';
 import MainLogin from './pages/MainLogin';
+// import Camera from './components/Camera';
+// import CameraExpo from './components/CameraExpo';
 // needs to import the element pages
 
 
@@ -42,6 +44,8 @@ function App() {
       {/* <DMtoggle /> */}
       {/* <FishSales /> */}
       {/* <Auth /> */}
+      {/* <Camera /> */}
+      {/* <CameraExpo /> */}
       
       <Router>
 
@@ -52,7 +56,7 @@ function App() {
             <Route path="/regform" element={<RegForm />} />
             <Route path="/login" element={<MainLogin />} />
             <Route path="/home" element={<Home />} />
-            {/* <Route path="/profile/:username" element={<Profile />} /> */}
+            <Route path="/profile/:username" element={<Profile />} />
             <Route path="*" element={<ErrorPage />} />
 
 
