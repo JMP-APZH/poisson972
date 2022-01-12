@@ -22,7 +22,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
+  content: ["./src/**/*.{html,js}"],
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -53,3 +53,17 @@ module.exports = {
   },
   plugins: [],
 }
+
+// module.exports = () => {
+//   return {
+//     postcssPlugin: 'postcss-will-change',
+//     Declaration: {
+//       'will-change': (decl, { Declaration }) => {
+//         decl.cloneBefore(
+//           new Declaration({ prop: 'backface-visibility', value: 'hidden' })
+//         )
+//       }
+//     }
+//   }
+// }
+// module.exports.postcss = true

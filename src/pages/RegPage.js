@@ -54,6 +54,8 @@ const RegPage = () => {
                                     />
                                 </div>
 
+                                <br />
+
                                 <button
                                     onClick={(e) => submitRegister1(e)}
                                     // onClick={() => setPageState("login")}
